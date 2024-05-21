@@ -1,0 +1,18 @@
+meta {
+  name: SendCommand
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/services.v1.CommandService/SendCommand
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "command": "ls",
+    "args": ""
+  }
+}

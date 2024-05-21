@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<script>
+  import { prefetch } from 'astro:prefetch';
+  import { vars } from '../../config/variables';
+  let goToDashboard = document.querySelector('#dashboard');
+
+  goToDashboard?.addEventListener('click', () => {
+    alert(vars.BE_BASE);
+  });
+
+  // setup prefetch
+  document
+    .querySelectorAll(
+      'a[href]:not([rel*="no-prefetch"]):not([href*="/api/"]):not([href*="/sign-in"])',
+    )
+    .forEach(function (link) {
+      link.addEventListener('mouseover', function (event) {
+        prefetch((event.target as HTMLAnchorElement).href);
+      });
+    });
+</script>
+
+<Layout title="Welcome to Astro.">
+  <!-- shown two button in center -->
+  <!-- <h1 class="text-center">Promote brain</h1> -->
+  <div class="tw-flex tw-justify-center tw-mt-5">
+    <div class="tw-flex tw-flex-row tw-justify-between">
+      <div
+        id="dashboard"
+        class="tw-bg-blue-500 tw-hover:bg-blue-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-mr-4 tw-cursor-pointer"
+      >
+        Dashborad
+      </div>
+    </div>
+  </div>
+</Layout>

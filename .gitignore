@@ -1,0 +1,10 @@
+vendor/
+node_modules/
+lib/gen
+tmp/
+
+.history/*
+pnpm-lock.yaml
+**/.DS_Store
+example/go-libp2p-gorpc
+drpc.code-workspace

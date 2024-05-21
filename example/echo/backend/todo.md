@@ -1,0 +1,1 @@
+- add a go server and an endpoint "/ping" to serve some object using the protobuf schema

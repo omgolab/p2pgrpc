@@ -1,0 +1,17 @@
+{
+  "extends": "./node_modules/gts/"
+  // "parserOptions": {
+  //   "ecmaVersion": 2015,
+  //   "sourceType": "module"
+  // },
+  // "rules": {
+  //   "node/no-unpublished-require": [
+  //     "error",
+  //     {
+  //       "allowModules": [],
+  //       "resolvePaths": []
+  //     }
+  //   ],
+  //   "prettier/prettier": "off"
+  // }
+}

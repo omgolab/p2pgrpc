@@ -1,0 +1,18 @@
+{
+    "cSpell.words": [
+        "astro",
+        "astrojs",
+        "brotli",
+        "dotenv",
+        "tsconfigs"
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit",
+        "source.sortMembers": "explicit"
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "docwriter.hotkey.mac": "⌥ + ."
+}

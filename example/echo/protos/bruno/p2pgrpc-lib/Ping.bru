@@ -1,0 +1,15 @@
+meta {
+  name: Ping
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/services.v1.CommandService/Ping
+  body: json
+  auth: none
+}
+
+body:json {
+  {}
+}

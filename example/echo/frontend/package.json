@@ -1,0 +1,47 @@
+{
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "cat .env.static.common .env.static.local > .env && astro dev --host",
+    "build-local": "cat .env.static.common .env.static.local > .env && rm -rf dist/ _gen/; astro build; mv _gen/ dist",
+    "build": "pnpm lint && cat .env.static.common .env.static.prod > .env && astro check && rm -rf dist/ _gen/ && pnpm i && pnpm astro build && mv _gen/ dist",
+    "preview": "pnpm build-local && astro preview",
+    "lint": "tsc -noEmit && gts fix",
+    "unused": "pnpx depcheck",
+    "update": "pnpm up --latest"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/svelte": "^5.2.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@bufbuild/protobuf": "^1.8.0",
+    "@connectrpc/connect": "^1.4.0",
+    "@connectrpc/connect-web": "^1.4.0",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "20.11.30",
+    "@vite-pwa/astro": "^0.3.1",
+    "astro": "^4.5.9",
+    "astro-compress": "^2.2.17",
+    "astro-critters": "^2.1.6",
+    "astro-seo": "^0.8.3",
+    "cssnano": "^6.1.1",
+    "daisyui": "^4.7.3",
+    "gts": "^5.3.0",
+    "postcss": "^8.4.38",
+    "protos-pkg": "github:astronlabltd/protos-pkg#444959efb194e387d49d2fe063e736277655af7a",
+    "sharp": "^0.33.3",
+    "siema": "^1.5.1",
+    "svelte": "^4.2.12",
+    "tailwindcss": "^3.4.1",
+    "typescript": "~5.4.3",
+    "vite-plugin-pwa": "^0.19.7",
+    "workbox-window": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

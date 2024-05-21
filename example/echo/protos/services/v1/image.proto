@@ -1,0 +1,34 @@
+syntax = "proto3";
+package services.v1;
+
+import "entities/v1/image.proto";
+
+service ImageService {
+  rpc ListImages(ListImagesRequest) returns (ListImagesResponse) {}
+  rpc CreateImage(CreateImageRequest) returns (CreateImageResponse) {}
+  rpc DeleteImage(DeleteImageRequest) returns (DeleteImageResponse) {}
+}
+
+message ListImagesRequest {}
+
+message ListImagesResponse {
+  repeated entities.v1.Image images = 1;
+}
+
+message CreateImageRequest {
+  string name = 1;
+  string version = 2;
+}
+
+message CreateImageResponse {
+  entities.v1.Image image = 1;
+  string message = 2;
+}
+
+message DeleteImageRequest {
+  uint32 id = 1;
+}
+
+message DeleteImageResponse {
+  string message = 1;
+}

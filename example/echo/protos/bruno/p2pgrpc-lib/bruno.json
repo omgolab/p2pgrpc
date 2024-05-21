@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "drpc-lib",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+package entities.v1;
+
+import "entities/v1/enum.proto";
+
+message Container {
+  uint32 id = 1;
+  string name = 2;
+  string container_id = 3;
+  ContainerStatusType status = 4;
+}

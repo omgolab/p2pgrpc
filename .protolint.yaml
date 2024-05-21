@@ -1,0 +1,9 @@
+# example: https://github.com/yoheimuta/protolint/blob/master/_example/config/.protolint.yaml
+lint:
+  rules_option:
+    # MAX_LINE_LENGTH rule option.
+    max_line_length:
+      # Enforces a maximum line length
+      max_chars: 150
+      # Specifies the character count for tab characters
+      tab_chars: 2

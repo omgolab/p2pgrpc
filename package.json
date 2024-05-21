@@ -1,0 +1,19 @@
+{
+  "name": "protos-pkg",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "/": "./gen/ts/"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
+  "files": [
+    "/gen/ts/"
+  ],
+  "devDependencies": {
+    "@bufbuild/protobuf": "^1.4.1",
+    "typescript": "^5.2.2"
+  }
+}

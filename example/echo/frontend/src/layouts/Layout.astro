@@ -1,0 +1,59 @@
+---
+import { vars } from '../config/variables';
+import { pwa } from '../config/virtuals';
+import '../assets/css/app.css';
+import { SEO } from 'astro-seo';
+import { transformRemoteImage } from '../config/generator';
+
+//on production: this generated img is necessary for the webmanifest
+{
+  vars.env.MODE === 'production' &&
+    transformRemoteImage(vars.OG_IMG_URL, vars.IMG_URL_512);
+}
+const dynVars = vars.env;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href={vars.OG_IMG_URL} />
+    <SEO
+      title={vars.TITLE}
+      description={vars.DESCRIPTION}
+      openGraph={{
+        basic: {
+          title: vars.OG_TITLE,
+          type: 'website',
+          image: vars.OG_IMG_URL,
+        },
+        optional: {
+          description: vars.DESCRIPTION,
+          siteName: vars.SHORT_NAME,
+        },
+        image: {
+          alt: vars.OG_IMG_ALT,
+        },
+      }}
+    />
+    <meta name="theme-color" content={vars.THEME_COLOR} />
+    <script src="../config/pwa.ts"></script>
+    {pwa && <Fragment set:html={pwa.webManifest.linkTag} />}
+  </head>
+
+  <body>
+    <!---  bootstrap start -->
+    <!---  TODO: use an html element instead -->
+    <script is:inline define:vars={{ dynVars }}>
+      let i = { meta: { env: {} } };
+      for (const key in dynVars) {
+        if (Object.hasOwnProperty.call(dynVars, key)) {
+          i.meta.env[key] = dynVars[key];
+        }
+      }
+      window['import'] = i;
+    </script>
+    <!---  bootstrap end -->
+    <slot />
+  </body>
+</html>

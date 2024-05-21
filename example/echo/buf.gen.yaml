@@ -1,0 +1,33 @@
+version: v1
+managed:
+  enabled: true
+  optimize_for: SPEED
+  go_package_prefix:
+    default: github.com/omgolab/drpc/gen/go
+    except:
+      - buf.build/googleapis/googleapis
+      - buf.build/bufbuild/protovalidate
+plugins:
+  # isomorphic TS
+  - plugin: buf.build/connectrpc/es
+    out: ./frontend/gen/ts
+    opt:
+      - target=ts
+  # TS dependencies
+  - plugin: buf.build/bufbuild/es
+    out: ./frontend/gen/ts
+    opt:
+      - target=ts
+  # php
+  # - plugin: buf.build/protocolbuffers/php
+  #   out: gen/php
+  # go (buf connect)
+  - plugin: buf.build/connectrpc/go
+    out: ./backend/gen/go
+    opt:
+      - paths=source_relative
+  # go (dependencies)
+  - plugin: buf.build/protocolbuffers/go
+    out: ./backend/gen/go
+    opt:
+      - paths=source_relative

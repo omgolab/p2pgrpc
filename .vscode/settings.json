@@ -1,0 +1,31 @@
+{
+    "cSpell.words": [
+        "astronlabltd",
+        "autoload",
+        "bufbuild",
+        "comparables",
+        "connectrpc",
+        "entitiesv",
+        "flowcore",
+        "grpchealth",
+        "grpcreflect",
+        "leaderboard",
+        "leaderboards",
+        "parseflow",
+        "promotebrain",
+        "protocolbuffers",
+        "protoimpl",
+        "protoreflect",
+        "protos",
+        "protovalidate",
+        "servicesv",
+        "stephenh",
+        "stocksync",
+        "zedge"
+    ],
+    "protoc": {
+        "options": [
+            "--proto_path=${workspaceRoot}/protos",
+        ]
+    }
+}

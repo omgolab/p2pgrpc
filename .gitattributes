@@ -1,0 +1,13 @@
+# Handle whitespace
+* -whitespace
+
+# Exclude directories and files by default
+*/* export-ignore
+*_* export-ignore
+*.* export-ignore
+Makefile export-ignore
+
+# Include specific directories and files
+*.php !export-ignore
+gen/php !export-ignore
+composer.json !export-ignore

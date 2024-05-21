@@ -1,0 +1,64 @@
+syntax = "proto3";
+package services.v1;
+
+import "entities/v1/container.proto";
+
+service ContainerService {
+  rpc ListContainers(ListContainersRequest) returns (ListContainersResponse) {}
+  rpc CreateContainer(CreateContainerRequest) returns (stream CreateContainerResponse) {}
+  rpc UpdateContainer(UpdateContainerRequest) returns (UpdateContainerResponse) {}
+  rpc DeleteContainer(DeleteContainerRequest) returns (DeleteContainerResponse) {}
+}
+
+message ListContainersRequest {}
+
+message ListContainersResponse {
+  repeated entities.v1.Container containers = 1;
+}
+
+message CreateContainerRequest {
+  string name = 1;
+  string docker_image = 2;
+  repeated string commands = 3;
+  Config config = 4;
+  HostConfig host_config = 5;
+
+  message Config {
+    repeated string env = 1;
+    string working_dir = 2;
+    string entrypoint = 3;
+  }
+
+  message HostConfig {
+    bool privileged = 1;
+    Mount mount = 2;
+
+    message Mount {
+      string source = 1;
+      string target = 2;
+      bool read_only = 3;
+    }
+  }
+}
+
+message CreateContainerResponse {
+  entities.v1.Container container = 1;
+  string message = 2;
+}
+
+message UpdateContainerRequest {
+  entities.v1.Container container = 1;
+}
+
+message UpdateContainerResponse {
+  entities.v1.Container container = 1;
+  string message = 2;
+}
+
+message DeleteContainerRequest {
+  uint32 id = 1;
+}
+
+message DeleteContainerResponse {
+  string message = 2;
+}

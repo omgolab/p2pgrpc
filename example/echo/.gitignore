@@ -1,0 +1,7 @@
+.DS_Store
+.env.local
+*.log
+.history/*
+**/dist-bundle/
+node_modules/
+**/package-lock.json
